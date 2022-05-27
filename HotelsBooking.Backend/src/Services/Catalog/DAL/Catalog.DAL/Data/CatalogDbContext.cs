@@ -1,4 +1,5 @@
-﻿using Catalog.Domain.Entities;
+﻿using Catalog.DAL.Configurations;
+using Catalog.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.DAL.Data
@@ -12,6 +13,7 @@ namespace Catalog.DAL.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
             base.OnModelCreating(builder);
         }
     }
