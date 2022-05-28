@@ -1,4 +1,5 @@
 ﻿using Identity.Application.Common.Contracts;
+using Identity.Application.Exceptions;
 using Identity.Application.TokenGenerators;
 using Identity.Dal.Common.Contracts;
 using Identity.Domain.Entites;
@@ -12,19 +13,25 @@ namespace Identity.Application.Common.Services
     public class IdentityService : IIdentityRepository
     {
         private readonly IEfRepository<User> _efRepository;
+        private readonly IUserRepository _userRepository;
         private readonly AccessTokenGenerator _accessTokenGenerator;
         private readonly RefreshTokenGenerator _refreshTokenGenerator;
         private readonly IRefreshTokenRepository _refreshTokenRepository;
+        private readonly IPasswordHasher _passwordHasher;
 
         public IdentityService(IEfRepository<User> efRepository,
+            IUserRepository userRepository,
             AccessTokenGenerator accessTokenGenerator,
             RefreshTokenGenerator refreshTokenGenerator,
-            IRefreshTokenRepository refreshTokenRepository)
+            IRefreshTokenRepository refreshTokenRepository,
+            IPasswordHasher passwordHasher)
         {
             _efRepository = efRepository;
+            _userRepository = userRepository;   
             _accessTokenGenerator = accessTokenGenerator;
             _refreshTokenGenerator = refreshTokenGenerator;
             _refreshTokenRepository = refreshTokenRepository;
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<LoginResponse> Authenticate(User user)
@@ -52,15 +59,43 @@ namespace Identity.Application.Common.Services
         {
             var gid = Guid.NewGuid();
 
+            var emailAlreadyExist = _userRepository.GetByEmailAsync(request.Email);
+
+            if (emailAlreadyExist != null)
+                throw new UserEmailAlreadyExistException(request.Email);
+
+            var loginAlreadyExist = _userRepository.GetByLoginAsync(request.Login);
+
+            if (loginAlreadyExist != null)
+                throw new UserLoginAlreadyExistException(request.Login);
+
+            var passwordHash = _passwordHasher.HashPassword(request.Password);
+
             var user = new User
             {
                 GID = gid,
                 Email = request.Email,
                 Login = request.Login,
-                Password = request.Password
+                Password = passwordHash
             };
 
             _efRepository.Add(user);
+
+            return Task.CompletedTask;
+        }
+
+        public Task ChangePasswordAsync(Guid userGid, string currentPassword, string newPassword)
+        {
+            var userAlreadyExist = _userRepository.GetById(userGid);
+
+            if (!_passwordHasher.VerifyPassword(currentPassword, newPassword))
+                throw new InvalidCurrentPasswordException(currentPassword);
+
+            var user = new User();
+
+            user.Password = newPassword;
+
+            _userRepository.UpdateAsync(user);
 
             return Task.CompletedTask;
         }
