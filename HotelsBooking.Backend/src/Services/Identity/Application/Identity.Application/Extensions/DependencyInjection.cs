@@ -32,6 +32,7 @@ namespace Identity.Application.Extensions
             services.AddScoped<IIdentityRepository, IdentityService>();
             services.AddScoped<IPasswordHasher, PasswordHasherService>();
             services.AddScoped<IRefreshTokenRepository, RefreshTokenService>();
+            services.AddScoped<IUserRepository, UserService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(o =>
             {
