@@ -7,7 +7,7 @@ namespace Catalog.Domain.ValueObjects
         public string Value { get; }
         public Name(string value)
         {
-            if (string.IsNullOrEmpty(value) || value.Length is > 128 or < 3)
+            if (string.IsNullOrWhiteSpace(value) || value.Length is > 128 or < 3)
                 throw new InvalidNameException(value);
 
             Value = value;

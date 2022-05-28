@@ -4,4 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DAL\Catalog.DAL\Catalog.DAL.csproj" />
+    <ProjectReference Include="..\..\Domain\Catalog.Domain\Catalog.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

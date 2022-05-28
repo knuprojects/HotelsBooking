@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using Catalog.Application.Common.Contracts;
 using Catalog.DAL.Common.Contracts;
-using Catalog.DAL.Common.Services;
-using Catalog.DAL.Data;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Models.Request;
 using Catalog.Domain.Models.Response;
