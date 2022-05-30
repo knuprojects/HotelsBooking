@@ -8,7 +8,7 @@ namespace Identity.Application.Common.Contracts
     {
         Task<User> GetByLoginAsync(string login);
         Task<User> GetByEmailAsync(string email);
-        User GetById(Guid gid);
+        Task<User> GetById(Guid userId);
         Task UpdateAsync(User user);
     }
 }

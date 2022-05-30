@@ -30,9 +30,9 @@ namespace Identity.Dal.Common.Services
             _context.SaveChanges();
         }
 
-        public TEntity GetId(Guid id)
+        public TEntity GetId(TEntity objModel)
         {
-            return _context.Set<TEntity>().Find(id);
+            return _context.Set<TEntity>().Find(objModel.GID);
         }
 
         public async Task<TEntity> GetIdAsync(Guid id)

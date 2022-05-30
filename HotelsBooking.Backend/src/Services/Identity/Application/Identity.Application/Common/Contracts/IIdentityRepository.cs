@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace Identity.Application.Common.Contracts
 {
-    internal interface IIdentityRepository
+    public interface IIdentityRepository
     {
         Task<LoginResponse> Authenticate(User user);
-        Task Register(RegistrationRequest request);
-        Task ChangePasswordAsync(Guid userGid, string currentPassword, string newPassword);
+        Task Register(User request);
     }
 }

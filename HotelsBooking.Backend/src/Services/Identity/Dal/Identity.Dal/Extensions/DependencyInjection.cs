@@ -16,7 +16,7 @@ namespace Identity.Dal.Extensions
 
             services.AddDbContext<IdentityDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Identity.Api"));
             });
 
             services.AddScoped(typeof(IEfRepository<>), typeof(EfService<>));

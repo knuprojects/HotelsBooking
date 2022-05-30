@@ -55,7 +55,7 @@ namespace Identity.Application.Common.Services
             };
         }
 
-        public Task Register(RegistrationRequest request)
+        public Task Register(User request)
         {
             var gid = Guid.NewGuid();
 
@@ -80,22 +80,6 @@ namespace Identity.Application.Common.Services
             };
 
             _efRepository.Add(user);
-
-            return Task.CompletedTask;
-        }
-
-        public Task ChangePasswordAsync(Guid userGid, string currentPassword, string newPassword)
-        {
-            var userAlreadyExist = _userRepository.GetById(userGid);
-
-            if (!_passwordHasher.VerifyPassword(currentPassword, newPassword))
-                throw new InvalidCurrentPasswordException(currentPassword);
-
-            var user = new User();
-
-            user.Password = newPassword;
-
-            _userRepository.UpdateAsync(user);
 
             return Task.CompletedTask;
         }

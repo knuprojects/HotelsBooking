@@ -32,14 +32,14 @@ namespace Identity.Application.Common.Services
             return result;
         }
 
-        public User GetById(Guid gid)
+        public Task<User> GetById(Guid userId)
         {
-            var result = _context.Users.FirstOrDefault(x => x.GID == gid);
+            var result = _context.Users.FirstOrDefault(x => x.GID == userId);
 
             if (result == null)
-                throw new UserNotFoundException(gid);
+                throw new UserNotFoundException(userId);
 
-            return result;
+            return Task.FromResult(result);
         }
 
         public async Task<User> GetByLoginAsync(string login)
