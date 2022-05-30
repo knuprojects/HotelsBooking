@@ -9,7 +9,7 @@ namespace Catalog.Application.Common.Contracts
     public interface IHotelRepository
     {
         Task<HotelCreateResponse> CreateHotel(HotelCreateRequest request);
-        Task<IEnumerable<Hotel>> GetAllHotelsAsync();
+        IEnumerable<Hotel> GetHotels();
         Task<HotelDeleteResponse> DeleteHotel(HotelDeleteRequest request);
     }
 }

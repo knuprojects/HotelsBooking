@@ -45,9 +45,9 @@ namespace Catalog.Application.Common.Services
             return Task.FromResult(result);
         }
 
-        public async Task<IEnumerable<Hotel>> GetAllHotelsAsync()
+        public IEnumerable<Hotel> GetHotels()
         {
-            return await _efService.GetAllAsync();
+            return _efService.GetAll();
         }
     }
 }

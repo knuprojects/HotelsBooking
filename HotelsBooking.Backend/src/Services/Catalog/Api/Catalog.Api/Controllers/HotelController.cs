@@ -24,9 +24,9 @@ namespace Catalog.Api.Controllers
         }
 
         [HttpGet("getallhotels")]
-        public IActionResult GetAllHotelsAsync()
+        public IActionResult GetAllHotels()
         {
-            var result = _hotelRepository.GetAllHotelsAsync();
+            var result = _hotelRepository.GetHotels();
             return Ok(result);
         }
 
