@@ -9,6 +9,6 @@ namespace Identity.Domain.Entites
         public Email Email { get; set; }
         public Password Password { get; set; }
         public Role Role { get; set; } = Role.User;
-        public DateTime DatedJoined { get; private set; } = DateTime.UtcNow;
+        public DateTime DatedJoined { get; private set; } = DateTime.Now;
     }
 }

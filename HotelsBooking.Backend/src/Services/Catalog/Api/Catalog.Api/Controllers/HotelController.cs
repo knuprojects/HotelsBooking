@@ -1,5 +1,6 @@
 ﻿using Catalog.Application.Common.Contracts;
 using Catalog.Domain.Models.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Catalog.Api.Controllers
@@ -14,6 +15,7 @@ namespace Catalog.Api.Controllers
             _hotelRepository = hotelRepository;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("createhotel")]
         public IActionResult CreateHotel([FromBody] HotelCreateRequest request)
         {
@@ -28,6 +30,7 @@ namespace Catalog.Api.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("deletehotel")]
         public IActionResult DeleteHotel([FromBody] HotelDeleteRequest request)
         {

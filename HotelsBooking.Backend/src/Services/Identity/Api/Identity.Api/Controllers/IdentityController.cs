@@ -42,10 +42,11 @@ namespace Identity.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            User registrationUser = new User()
+            var registrationUser = new User()
             {
                 Email = registerRequest.Email,
-                Login = registerRequest.Login
+                Login = registerRequest.Login,
+                Password = registerRequest.Password
             };
 
             var result = _authRepository.Register(registrationUser);
@@ -54,7 +55,7 @@ namespace Identity.Api.Controllers
         }
 
 
-        [HttpPost("/login")]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
         {
 
@@ -79,7 +80,7 @@ namespace Identity.Api.Controllers
             return Ok(response);
         }
 
-        [HttpPost("/refresh")]
+        [HttpPost("refresh")]
         public async Task<IActionResult> Refresh([FromBody] RefreshRequest refreshRequest)
         {
             if (!ModelState.IsValid)
@@ -109,10 +110,10 @@ namespace Identity.Api.Controllers
         }
 
         [Authorize]
-        [HttpDelete("/logout")]
+        [HttpDelete("logout")]
         public async Task<IActionResult> Logout()
         {
-            string rawUserId = HttpContext.User.FindFirstValue("id");
+            string rawUserId = HttpContext.User.FindFirstValue("GID");
 
             if (!Guid.TryParse(rawUserId, out Guid userId))
             {

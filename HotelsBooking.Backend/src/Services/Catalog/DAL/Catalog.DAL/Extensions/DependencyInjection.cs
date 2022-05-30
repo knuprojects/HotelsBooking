@@ -12,7 +12,7 @@ namespace Catalog.DAL.Extensions
         public static IServiceCollection AddPersistence(this IServiceCollection services,
             IConfiguration configuration)
         {
-            var connectionString = configuration["DbConnection"];
+            var connectionString = configuration["DatabaseSettings:ConnectionString"];
             services.AddDbContext<CatalogDbContext>(options =>
             {
                 options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Catalog.Api"));

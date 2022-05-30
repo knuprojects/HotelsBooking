@@ -1,4 +1,6 @@
 ﻿using Identity.Application.Common.Contracts;
+using Identity.Domain.Entites;
+using Identity.Domain.ValueObjects;
 
 namespace Identity.Application.Common.Services
 {

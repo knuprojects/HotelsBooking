@@ -8,7 +8,7 @@ namespace Identity.Domain.ValueObjects
 
         public Password(string value)
         {
-            if (string.IsNullOrWhiteSpace(value) || value.Length is > 36 or < 8)
+            if (string.IsNullOrWhiteSpace(value) || value.Length is > 100 or < 8)
                 throw new InvalidPasswordException(value);
 
             Value = value;

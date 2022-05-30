@@ -67,7 +67,7 @@ namespace Catalog.DAL.Common.Services
 
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
-            return await Task.Run(() => _context.Set<TEntity>());
+            return await Task.Run(() => _context.Set<TEntity>().ToListAsync());
         }
 
         public int Count()
