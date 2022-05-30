@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Catalog.Domain.ValueObjects;
 
 namespace Catalog.Domain.Entities
 {
     public class BaseEntity
     {
-        public Guid GID { get; set; }
+        public GID GID { get; set; }
     }
 }

@@ -1,5 +1,5 @@
-﻿using Catalog.Domain.Entities;
-using Catalog.Domain.ValueObjects;
+﻿using Catalog.Domain.ValueObjects;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Catalog.Domain.Models.Request
@@ -15,6 +15,6 @@ namespace Catalog.Domain.Models.Request
         [Required]
         public Price Price { get; set; }
         [Required]
-        public Hotel HotelGID { get; set; }
+        public Guid HotelGID { get; set; }
     }
 }

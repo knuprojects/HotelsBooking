@@ -13,6 +13,7 @@ namespace Catalog.Api.Helpers.DI.Services
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<IHotelRepository, HotelService>();
+            services.AddScoped<IRoomRepository, RoomService>();
             services.AddPersistence(configuration);
             services.AddAutoMapper(typeof(HotelsBookingProfile));
         }

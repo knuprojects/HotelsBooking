@@ -1,4 +1,5 @@
 ﻿using Catalog.Domain.ValueObjects;
+using System;
 
 namespace Catalog.Domain.Entities
 {
@@ -8,6 +9,6 @@ namespace Catalog.Domain.Entities
         public Floor Floor { get; set; }
         public RoomType RoomType { get; set; }
         public Price Price { get; set; }
-        public Hotel HotelGID { get; set; }
+        public Guid HotelGID { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace Catalog.Domain.ValueObjects
 {
     public sealed class Name
     {
-        public string Value { get; }
+        public string Value { get; set; }
         public Name(string value)
         {
             if (string.IsNullOrWhiteSpace(value) || value.Length is > 128 or < 3)

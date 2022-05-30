@@ -10,6 +10,8 @@ namespace Catalog.DAL.Configurations
         public void Configure(EntityTypeBuilder<Hotel> builder)
         {
             builder.HasKey(x => x.GID);
+            builder.Property(x => x.GID)
+                .HasConversion(x => x.Value, x => new GID(x));
             builder.Property(x => x.Name)
                 .HasConversion(x => x.Value, x => new Name(x))
                 .IsRequired()

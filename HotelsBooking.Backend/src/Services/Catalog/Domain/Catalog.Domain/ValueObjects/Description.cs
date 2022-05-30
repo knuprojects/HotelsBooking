@@ -4,7 +4,7 @@ namespace Catalog.Domain.ValueObjects
 {
     public sealed class Description
     {
-        public string Value { get; }
+        public string Value { get; set; }
         public Description(string value)
         {
             if (string.IsNullOrEmpty(value) || value.Length is > 256 or < 12)

@@ -15,7 +15,7 @@ namespace Catalog.DAL.Extensions
             var connectionString = configuration["DbConnection"];
             services.AddDbContext<CatalogDbContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString, b => b.MigrationsAssembly("Catalog.Api"));
             });
 
             services.AddScoped(typeof(IEfRepository<>), typeof(EfService<>));

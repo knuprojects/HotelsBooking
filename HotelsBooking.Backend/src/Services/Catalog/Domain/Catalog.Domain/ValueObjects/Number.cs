@@ -4,7 +4,7 @@ namespace Catalog.Domain.ValueObjects
 {
     public sealed class Number
     {
-        public int Value { get; }
+        public int Value { get; set; }
         public Number(int value)
         {
             if (value < 0 || value > 500)

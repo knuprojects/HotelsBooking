@@ -4,7 +4,7 @@ namespace Catalog.Domain.ValueObjects
 {
     public sealed class Price
     {
-        public decimal Value { get; }
+        public decimal Value { get; set; }
         public Price(decimal value)
         {
             if (value < 0)
