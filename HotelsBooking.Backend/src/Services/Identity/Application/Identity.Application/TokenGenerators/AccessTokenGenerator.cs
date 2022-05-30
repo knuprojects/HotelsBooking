@@ -21,13 +21,9 @@ namespace Identity.Application.TokenGenerators
         {
             List<Claim> claims = new List<Claim>()
             {
-                new Claim("GID", user.GID.ToString())
+                new Claim("GID", user.GID.ToString()),
+                new Claim("Role", user.Role.ToString())
             };
-
-            foreach (var role in user.Role)
-            {
-                claims.Add(new Claim("role", role.ToString()));
-            }
 
             DateTime expirationTime = DateTime.UtcNow.AddMinutes(_configuration.AccessTokenExpirationMinutes);
 

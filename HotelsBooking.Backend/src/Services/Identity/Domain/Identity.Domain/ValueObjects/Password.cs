@@ -4,7 +4,7 @@ namespace Identity.Domain.ValueObjects
 {
     public sealed class Password
     {
-        public string Value { get; }
+        public string Value { get; set; }
 
         public Password(string value)
         {

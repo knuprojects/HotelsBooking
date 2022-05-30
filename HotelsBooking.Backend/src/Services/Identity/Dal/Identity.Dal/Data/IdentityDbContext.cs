@@ -15,6 +15,9 @@ namespace Identity.Dal.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+
+            builder.Entity<RefreshToken>().HasKey(x => x.GID);
+
             base.OnModelCreating(builder);
         }
     }

@@ -25,6 +25,7 @@ namespace Identity.Dal.Configurations
                 .IsRequired()
                 .HasMaxLength(36);
             builder.Property(x => x.Role)
+                .HasConversion(x => x.Value, x => new Role(x))
                 .IsRequired();
         }
     }

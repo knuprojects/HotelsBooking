@@ -8,7 +8,7 @@ namespace Identity.Domain.ValueObjects
     {
         public IEnumerable<string> AvailableRoles { get; } = new[] { "admin", "user" };
 
-        public string Value { get; }
+        public string Value { get; set; }
 
         public Role(string value)
         {
