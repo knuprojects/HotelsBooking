@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Catalog.Application.Common.Pagination.Filter;
+using Catalog.Application.Common.Pagination.Queries;
 using Catalog.Domain.Entities;
 using Catalog.Domain.Models.Request;
 using Catalog.Domain.Models.Response;
@@ -13,6 +15,7 @@ namespace Catalog.Application.Common.Mapping
             CreateMap<Hotel, HotelCreateResponse>().ReverseMap();
             CreateMap<HotelDeleteRequest, Hotel>().ReverseMap();
             CreateMap<Hotel, HotelDeleteResponse>().ReverseMap();
+            CreateMap<PaginationQuery, PaginationFilter>().ReverseMap();
         }
     }
 }

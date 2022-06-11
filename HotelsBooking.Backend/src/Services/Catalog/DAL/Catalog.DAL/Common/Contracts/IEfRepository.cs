@@ -16,7 +16,7 @@ namespace Catalog.DAL.Common.Contracts
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);
         Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
-        IEnumerable<TEntity> GetAll();
+        List<TEntity> GetAll();
         Task<IEnumerable<TEntity>> GetAllAsync();
         int Count();
         Task<int> CountAsync();

@@ -36,7 +36,7 @@ namespace Catalog.Api
 
             app.UseRouting();
 
-            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            app.UseCors("AllowAll");
 
             app.UseAuthorization();
 

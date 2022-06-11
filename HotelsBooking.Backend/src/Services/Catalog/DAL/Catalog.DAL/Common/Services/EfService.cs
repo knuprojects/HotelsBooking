@@ -60,7 +60,7 @@ namespace Catalog.DAL.Common.Services
                 _context.Set<TEntity>().Where<TEntity>(predicate));
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public List<TEntity> GetAll()
         {
             return _context.Set<TEntity>().ToList();
         }
