@@ -1,0 +1,52 @@
+.navbar{
+    height: 120px;
+    background-color: #003580;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navContainer{
+    width: 100%;
+    max-width: 1400px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  
+  .logo{
+    font-weight: 700;
+    font-size: 24px;
+  }
+  
+  .navButton{
+    margin-right: 30px;
+    border: none;
+    cursor: pointer;
+    color: #003580;
+    border-radius: 20px;
+    padding: 15px;
+    font-weight: 200;
+    font-size: 18px;
+  }
+  
+  .navButton:hover{
+    background-color: rgb(243, 222, 36);
+    color: #003580;
+  }
+
+ul{
+  list-style: none;
+}
+
+li{
+  display: inline;
+}
+
+a{
+  font-size: 20px;
+  text-decoration: none;
+  color: white
+}

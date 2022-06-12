@@ -34,19 +34,19 @@ namespace Catalog.Api.Controllers
         }
 
         [HttpGet("getallhotels")]
-        public IActionResult GetAllHotels([FromQuery] PaginationQuery paginationQuery)
+        public IActionResult GetAllHotels(/*[FromQuery] PaginationQuery paginationQuery*/)
         {
-            var paginationFilter = _mapper.Map<PaginationFilter>(paginationQuery);
+            //var paginationFilter = _mapper.Map<PaginationFilter>(paginationQuery);
 
-            var result = _hotelRepository.GetHotels(paginationFilter);
+            var result = _hotelRepository.GetHotels();
 
-            if(paginationFilter == null || paginationFilter.PageNumber < 1 || paginationFilter.PageSize < 1)
-            {
-                return Ok(new PagedResponse<Hotel>(result));
-            }
+            //if(paginationFilter == null || paginationFilter.PageNumber < 1 || paginationFilter.PageSize < 1)
+            //{
+            //    return Ok(new PagedResponse<Hotel>(result));
+            //}
 
-            var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, paginationFilter, result);
-            return Ok(paginationResponse);
+            //var paginationResponse = PaginationHelpers.CreatePaginatedResponse(_uriService, paginationFilter, result);
+            return Ok(result);
         }
 
         [Authorize(Roles = "Admin")]
