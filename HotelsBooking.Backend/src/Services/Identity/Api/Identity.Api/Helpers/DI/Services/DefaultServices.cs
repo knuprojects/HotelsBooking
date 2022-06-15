@@ -18,6 +18,7 @@ namespace Identity.Api.Helpers.DI.Services
                     policy.AllowAnyHeader();
                     policy.AllowAnyMethod();
                     policy.AllowAnyOrigin();
+                    policy.AllowCredentials();
                 });
             });
             services.AddSwaggerGen(c =>
