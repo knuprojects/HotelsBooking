@@ -37,6 +37,7 @@ namespace Identity.Application.Common.Services
         public async Task<LoginResponse> Authenticate(User user)
         {
             AccessToken accessToken = _accessTokenGenerator.GenerateToken(user);
+
             string refreshToken = _refreshTokenGenerator.GenerateToken();
 
             RefreshToken refreshTokenDTO = new RefreshToken()
