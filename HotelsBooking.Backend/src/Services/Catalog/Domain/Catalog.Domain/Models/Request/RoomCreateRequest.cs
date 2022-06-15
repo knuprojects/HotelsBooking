@@ -1,4 +1,5 @@
-﻿using Catalog.Domain.ValueObjects;
+﻿using Catalog.Domain.Entities;
+using Catalog.Domain.ValueObjects;
 using System;
 using System.ComponentModel.DataAnnotations;
 
@@ -7,14 +8,14 @@ namespace Catalog.Domain.Models.Request
     public sealed class RoomCreateRequest
     {
         [Required]
-        public Number Number { get; set; }
+        public int Number { get; set; }
         [Required]
-        public Floor Floor { get; set; }
+        public int Floor { get; set; }
         [Required]
         public RoomType RoomType { get; set; }
         [Required]
-        public Price Price { get; set; }
+        public decimal Price { get; set; }
         [Required]
-        public Guid HotelGID { get; set; }
+        public int HotelId { get; set; }
     }
 }

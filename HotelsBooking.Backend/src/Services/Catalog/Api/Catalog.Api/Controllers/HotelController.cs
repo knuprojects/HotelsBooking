@@ -56,5 +56,12 @@ namespace Catalog.Api.Controllers
             var result = _hotelRepository.DeleteHotel(request);
             return Ok(result);
         }
+
+        [HttpGet("gethotelbycity")]
+        public IActionResult GetAllHotelsByCity(string city)
+        {
+            var result = _hotelRepository.GetHotelsByCity(city);
+            return Ok(result);
+        }
     }
 }

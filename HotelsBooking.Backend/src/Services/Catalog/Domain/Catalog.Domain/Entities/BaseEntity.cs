@@ -4,6 +4,6 @@ namespace Catalog.Domain.Entities
 {
     public class BaseEntity
     {
-        public GID GID { get; set; }
+        public Id Id { get; set; }
     }
 }

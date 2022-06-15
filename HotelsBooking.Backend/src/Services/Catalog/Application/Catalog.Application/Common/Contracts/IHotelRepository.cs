@@ -12,5 +12,7 @@ namespace Catalog.Application.Common.Contracts
         Task<HotelCreateResponse> CreateHotel(HotelCreateRequest request);
         List<Hotel> GetHotels(PaginationFilter paginationFilter = null);
         Task<HotelDeleteResponse> DeleteHotel(HotelDeleteRequest request);
+
+        List<Hotel> GetHotelsByCity(string city);
     }
 }

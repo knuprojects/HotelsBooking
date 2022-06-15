@@ -1,6 +1,7 @@
 ﻿using Catalog.Application.Common.Contracts;
 using Catalog.Domain.Models.Request;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Catalog.Api.Controllers
 {
@@ -22,9 +23,9 @@ namespace Catalog.Api.Controllers
         }
 
         [HttpGet("getallrooms")]
-        public IActionResult GetAllRoomsAsync()
+        public IActionResult GetRooms()
         {
-            var result = _roomRepository.GetAllRoomsAsync();
+            var result = _roomRepository.GetAllRooms();
             return Ok(result);
         }
 
@@ -32,6 +33,13 @@ namespace Catalog.Api.Controllers
         public IActionResult DeleteRoom(RoomDeleteRequest request)
         {
             var result = _roomRepository.DeleteRoom(request);
+            return Ok(result);
+        }
+
+        [HttpGet("getroombygid")]
+        public IActionResult GetAllRoomsByHotelGuid(int hotelId)
+        {
+            var result = _roomRepository.GetRoomByHotelId(hotelId);
             return Ok(result);
         }
     }

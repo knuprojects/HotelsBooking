@@ -23,11 +23,9 @@ namespace Catalog.Application.Common.Services
         }
         public Task<HotelCreateResponse> CreateHotel(HotelCreateRequest request)
         {
-            var gid = Guid.NewGuid();
 
             var hotel = new Hotel
             {
-                GID = gid,
                 Name = request.Name,
                 Description = request.Description,
                 City = request.City,
@@ -56,6 +54,11 @@ namespace Catalog.Application.Common.Services
             var skip = (paginationFilter.PageNumber - 1) * paginationFilter.PageSize;
 
             return _efService.GetAll().Skip(skip).ToList();
+        }
+
+        public List<Hotel> GetHotelsByCity(string city)
+        {
+            return _efService.GetAll().FindAll(h => h.City == city);
         }
     }
 }

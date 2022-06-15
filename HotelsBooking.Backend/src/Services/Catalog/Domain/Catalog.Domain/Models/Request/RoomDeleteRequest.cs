@@ -6,6 +6,6 @@ namespace Catalog.Domain.Models.Request
     public sealed class RoomDeleteRequest
     {
         [Required]
-        public Guid GID { get; set; }
+        public int GID { get; set; }
     }
 }

@@ -9,6 +9,6 @@ namespace Catalog.Domain.Entities
         public Floor Floor { get; set; }
         public RoomType RoomType { get; set; }
         public Price Price { get; set; }
-        public Guid HotelGID { get; set; }
+        public int HotelId { get; set; }
     }
 }

@@ -6,12 +6,12 @@ namespace Identity.Domain.Models.Request
     public sealed class RegistrationRequest
     {
         [Required]
-        public Login Login { get; set; }
+        public string Login { get; set; }
 
         [Required]
-        public Email Email { get; set; }
+        public string Email { get; set; }
 
         [Required]
-        public Password Password { get; set; }
+        public string Password { get; set; }
     }
 }

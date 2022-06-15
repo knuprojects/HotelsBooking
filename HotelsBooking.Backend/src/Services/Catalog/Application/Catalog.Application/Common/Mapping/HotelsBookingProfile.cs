@@ -15,6 +15,12 @@ namespace Catalog.Application.Common.Mapping
             CreateMap<Hotel, HotelCreateResponse>().ReverseMap();
             CreateMap<HotelDeleteRequest, Hotel>().ReverseMap();
             CreateMap<Hotel, HotelDeleteResponse>().ReverseMap();
+
+            CreateMap<RoomCreateRequest, Room>().ReverseMap();
+            CreateMap<Room, RoomCreateResponse>().ReverseMap();
+            CreateMap<RoomDeleteRequest, Room>().ReverseMap();
+            CreateMap<Room, RoomCreateResponse>().ReverseMap();
+
             CreateMap<PaginationQuery, PaginationFilter>().ReverseMap();
         }
     }

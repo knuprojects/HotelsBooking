@@ -6,9 +6,9 @@ namespace Identity.Domain.Models.Request
     public sealed class LoginRequest
     {
         [Required]
-        public Email Email { get; set; }
+        public string Email { get; set; }
 
         [Required]
-        public Password Password { get; set; }
+        public string Password { get; set; }
     }
 }

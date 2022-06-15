@@ -6,12 +6,12 @@ namespace Catalog.Domain.Models.Request
     public sealed class HotelCreateRequest
     {
         [Required]
-        public Name Name { get; set; }
+        public string Name { get; set; }
         [Required]
-        public Description Description { get; set; }
+        public string Description { get; set; }
         [Required]
-        public City City { get; set; }
+        public string City { get; set; }
         [Required]
-        public PhotoUrl PhotoUrl { get; set; }
+        public string PhotoUrl { get; set; }
     }
 }

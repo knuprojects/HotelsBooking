@@ -5,7 +5,7 @@ namespace Catalog.Domain.Models.Response
 {
     public sealed class RoomCreateResponse
     {
-        public Guid GID { get; }
+        public int Id { get; }
         public HttpStatusCode StatusCode { get; set; } = HttpStatusCode.OK;
     }
 }

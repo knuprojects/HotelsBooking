@@ -10,8 +10,8 @@ namespace Catalog.DAL.Common.Contracts
     {
         void Add(TEntity objModel);
         void AddRange(IEnumerable<TEntity> objModel);
-        TEntity GetId(Guid id);
-        Task<TEntity> GetIdAsync(Guid id);
+        TEntity GetId(int id);
+        Task<TEntity> GetIdAsync(int id);
         TEntity Get(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate);
         IEnumerable<TEntity> GetList(Expression<Func<TEntity, bool>> predicate);

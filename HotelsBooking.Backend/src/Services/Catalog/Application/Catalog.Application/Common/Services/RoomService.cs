@@ -21,16 +21,15 @@ namespace Catalog.Application.Common.Services
         }
         public Task<RoomCreateResponse> CreateRoom(RoomCreateRequest request)
         {
-            var gid = Guid.NewGuid();
 
             var room = new Room
             {
-                GID = gid,
+                Id = 1,
                 Number = request.Number,
                 Floor = request.Floor,
                 RoomType = request.RoomType,
                 Price = request.Price,
-                HotelGID = request.HotelGID
+                HotelId = request.HotelId
             };
 
             _efService.Add(room);
@@ -46,9 +45,14 @@ namespace Catalog.Application.Common.Services
             return Task.FromResult(result);
         }
 
-        public async Task<IEnumerable<Room>> GetAllRoomsAsync()
+        public List<Room> GetAllRooms()
         {
-            return await _efService.GetAllAsync();
+            return _efService.GetAll();
+        }
+
+        public List<Room> GetRoomByHotelId(int hotelId)
+        {
+            return _efService.GetAll().FindAll(h => h.HotelId == hotelId);
         }
     }
 }
