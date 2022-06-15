@@ -4,6 +4,7 @@ using Identity.Domain.Entites;
 using Identity.Domain.Models.Request;
 using Identity.Domain.Models.Response;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Security.Claims;
@@ -77,6 +78,9 @@ namespace Identity.Api.Controllers
             }
 
             LoginResponse response = await _authRepository.Authenticate(user);
+
+            Response.Cookies.Append("jwt", response.AccessToken, new CookieOptions { HttpOnly = true });
+
             return Ok(response);
         }
 
